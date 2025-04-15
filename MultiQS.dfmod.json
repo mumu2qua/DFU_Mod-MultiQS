@@ -7,8 +7,8 @@
     "ModDescription": "Allows to keep a number of old quicksaves",
     "GUID": "78f0743e-b160-42ee-b60b-99226d5b18e0",
     "Files": [
-        "Assets/Game/Mods/DFU-Mod_MultiQS/MultiQS.dfmod.json",
-        "Assets/Game/Mods/DFU-Mod_MultiQS/modsettings.json",
-        "Assets/Game/Mods/DFU-Mod_MultiQS/scripts/MultiQS.cs"
+        "Assets/Game/Mods/DFU_Mod-MultiQS/MultiQS.dfmod.json",
+        "Assets/Game/Mods/DFU_Mod-MultiQS/modsettings.json",
+        "Assets/Game/Mods/DFU_Mod-MultiQS/scripts/MultiQS.cs"
     ]
 }

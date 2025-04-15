@@ -39,7 +39,6 @@ namespace MultiQS
         }
 
         private KeyCode QSKeyBinding;
-        private string PlayerCharName;
         private string RestoreKeyFile;
         private string TimeFormat;
         private string BackupName = "QuickSave.old";
@@ -60,8 +59,6 @@ namespace MultiQS
             else
                 TimeFormat="yyyyMMdd_hh:mm:ss tt";
 
-            PlayerCharName = GameManager.Instance.PlayerEntity.Name;
-
             // Create Persistent Storage Folder if neccessary
             Directory.CreateDirectory(mod.PersistentDataDirectory);
             RestoreKeyFile = Path.Combine(mod.PersistentDataDirectory, "RestoreKeyFile.txt");
@@ -77,7 +74,7 @@ namespace MultiQS
         {
             if (Input.GetKeyDown(QSKeyBinding))
             {
-                if(SaveLoadManager.Instance.HasQuickSave(PlayerCharName))
+                if(SaveLoadManager.Instance.HasQuickSave(GameManager.Instance.PlayerEntity.Name))
                     BackupQuickSave();
                 SaveLoadManager.Instance.QuickSave();
             }
@@ -85,7 +82,7 @@ namespace MultiQS
 
         void BackupQuickSave()
         {
-            int ExistingQuickSave = SaveLoadManager.Instance.FindSaveFolderByNames(PlayerCharName, "QuickSave");
+            int ExistingQuickSave = SaveLoadManager.Instance.FindSaveFolderByNames(GameManager.Instance.PlayerEntity.Name, "QuickSave");
             string dateTimeString = DateTime.Now.ToString(TimeFormat);
             string SaveName = BackupName + dateTimeString;
             SaveLoadManager.Instance.Rename(ExistingQuickSave, BackupName + dateTimeString);
@@ -95,7 +92,7 @@ namespace MultiQS
 
         void RemoveOldQuickSaves()
         {
-            int[] PlayerCharSaves = SaveLoadManager.Instance.GetCharacterSaveKeys(PlayerCharName);
+            int[] PlayerCharSaves = SaveLoadManager.Instance.GetCharacterSaveKeys(GameManager.Instance.PlayerEntity.Name);
             List<GameSave> QSBacks = new List<GameSave>();
             foreach (int save in PlayerCharSaves)
             {
