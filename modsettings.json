@@ -1,0 +1,36 @@
+{
+    "Version": "1.0.0",
+    "Sections": [
+        {
+            "Name": "Main",
+            "Description": "Main settings of the mod",
+            "IsAdvanced": false,
+            "Keys": [
+                {
+                    "Min": 1,
+                    "Max": 20,
+                    "Value": 5,
+                    "Name": "MaxOldQuicksavesNumber",
+                    "Description": "How many old QuickSaves to keep",
+                    "$version": "v1",
+                    "$type": "DaggerfallWorkshop.Game.Utility.ModSupport.ModSettings.SliderIntKey"
+                },
+                {
+                    "Value": false,
+                    "Name": "UnlimitedOldQuicksaves",
+                    "Description": "Ignore the previous setting and never remove old QuickSaves",
+                    "$version": "v1",
+                    "$type": "DaggerfallWorkshop.Game.Utility.ModSupport.ModSettings.ToggleKey"
+                },
+                {
+                    "Value": true,
+                    "Name": "UseTwentyFourHourFormat",
+                    "Description": "Use 24-hour format",
+                    "$version": "v1",
+                    "$type": "DaggerfallWorkshop.Game.Utility.ModSupport.ModSettings.ToggleKey"
+                }
+            ],
+            "$version": "v1"
+        }
+    ]
+}

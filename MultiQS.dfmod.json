@@ -1,0 +1,14 @@
+{
+    "ModTitle": "MultiQS",
+    "ModVersion": "1.0",
+    "ModAuthor": "Mumu2qua",
+    "ContactInfo": "mumu2qua on discord",
+    "DFUnity_Version": "1.1.0",
+    "ModDescription": "Allows to keep a number of old quicksaves",
+    "GUID": "78f0743e-b160-42ee-b60b-99226d5b18e0",
+    "Files": [
+        "Assets/Game/Mods/DFU-Mod_MultiQS/MultiQS.dfmod.json",
+        "Assets/Game/Mods/DFU-Mod_MultiQS/modsettings.json",
+        "Assets/Game/Mods/DFU-Mod_MultiQS/scripts/MultiQS.cs"
+    ]
+}
