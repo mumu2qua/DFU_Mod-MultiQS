@@ -74,7 +74,12 @@ namespace MultiQS
         {
             if (Input.GetKeyDown(QSKeyBinding))
             {
-                if(SaveLoadManager.Instance.HasQuickSave(GameManager.Instance.PlayerEntity.Name))
+                if (SaveLoadManager.Instance.IsSavingPrevented)
+                {
+                    DaggerfallUI.MessageBox(TextManager.Instance.GetLocalizedText("cannotSaveNow"));
+                    return;
+                }
+                if (SaveLoadManager.Instance.HasQuickSave(GameManager.Instance.PlayerEntity.Name))
                     BackupQuickSave();
                 SaveLoadManager.Instance.QuickSave();
             }
@@ -83,7 +88,11 @@ namespace MultiQS
         void BackupQuickSave()
         {
             int ExistingQuickSave = SaveLoadManager.Instance.FindSaveFolderByNames(GameManager.Instance.PlayerEntity.Name, "QuickSave");
-            string dateTimeString = DateTime.Now.ToString(TimeFormat);
+
+            // Get timestamp from the save
+            SaveInfo_v1 ExistingQuickSaveInfo = SaveLoadManager.Instance.GetSaveInfo(ExistingQuickSave);
+            string dateTimeString = DateTime.FromBinary(ExistingQuickSaveInfo.dateAndTime.realTime).ToString(TimeFormat);
+
             string SaveName = BackupName + dateTimeString;
             SaveLoadManager.Instance.Rename(ExistingQuickSave, BackupName + dateTimeString);
             if (!UnlimitedQS)
